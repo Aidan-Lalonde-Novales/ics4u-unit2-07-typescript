@@ -4,66 +4,51 @@
  *
  * By:      Aidan Lalonde-Novales (mostly Mr Coxall)
  * Version: 1.0
- * Since:   2022-10-23
+ * Since:   2022-10-27
  */
 
-import Vehicle from './Vehicle'
+import Bike from './Bike'
+import Truck from './Truck'
 
-// new Ford Focus
-console.log('Created Ford focus')
-const fordFocus = new Vehicle('B40-C4RR0', 'white', 4, 284)
+// new BMX Bike
+console.log('Created BMX Bike.')
+const bmxBike = new Bike(40, 'Red')
 
-console.log('Status:')
-fordFocus.status()
+console.log('Bike Status:')
+bmxBike.status()
 
-console.log('Accelerating, 10 of power for 10 sec.')
-fordFocus.accelerate(10, 10)
-console.log(`New speed: ${Number(fordFocus.getSpeed())}`)
+console.log('Set the cadence to 10:')
+bmxBike.setCadence(10)
+bmxBike.accelerate(0)
+bmxBike.status()
 
-console.log('Changing colour to black:')
-fordFocus.setColor('black')
-console.log(`New color: ${String(fordFocus.getColor())}`)
+console.log('Accelerate by 15:')
+bmxBike.accelerate(15)
+bmxBike.status()
 
-console.log('')
-
-// new Ferrari
-console.log('Created a Ferrari')
-const ferrari = new Vehicle('VHD-35HU', 'red', 2, 320)
-
-console.log('Status:')
-ferrari.status()
-
-console.log('Accelerating, 100 of power for 4 sec.')
-ferrari.accelerate(100, 4)
-console.log(`New speed: ${Number(ferrari.getSpeed())}`)
-
-console.log('Breaking, 10 of power for 10 sec.')
-ferrari.break(10, 10)
-console.log(`New speed: ${Number(ferrari.getSpeed())}`)
-
-console.log('Changing color:')
-ferrari.setColor('racing red!')
-console.log(`New color: ${String(ferrari.getColor())}`)
+console.log('Ring Bell:')
+bmxBike.ringBell()
 
 console.log('')
 
-// new Citroen Ami
-console.log('Created a Citroen Ami')
-const citroenAmi = new Vehicle('FS-695-DQ', 'blue', 2, 45)
+// new Truck
+console.log('Created Truck.')
+const truck = new Truck(200, 'Grey')
+truck.setLicensePlate('HGC-3456F')
 
-console.log('Status:')
-citroenAmi.status()
+console.log('Truck Status:')
+truck.status()
 
-console.log('Accelerating, 5 of power for 10 sec.')
-citroenAmi.accelerate(5, 10)
-console.log(`New speed: ${Number(citroenAmi.getSpeed())}`)
+console.log('Accelerating, 10 of power for 10 seconds.')
+truck.accelerate(10, 10)
+console.log(`\nNew speed (1): ${Number(truck.getSpeed())}\n`)
 
-console.log('Breaking, 2 of power for 10 sec.')
-citroenAmi.break(2, 10)
-console.log(`New speed: ${Number(citroenAmi.getSpeed())}`)
+console.log('Braking, 10 of power for 5 sec.')
+truck.braking(10, 5)
+console.log(`\nNew speed (2): ${Number(truck.getSpeed())}\n`)
 
-console.log('Changing color:')
-citroenAmi.setColor('purple')
-console.log(`New color: ${String(citroenAmi.getColor())}`)
+console.log('Applying air pressure of 10:')
+truck.airPressure(10)
+console.log(`\nNew speed (3): ${Number(truck.getSpeed())}\n`)
 
-console.log('\nDone.')
+console.log('Done.')

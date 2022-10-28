@@ -1,52 +1,22 @@
 /**
  * This class creates a vehicle with parameters concerning the
- * license plate, color, amount of doors, speed, and max speed.
+ * speed, color, and max speed.
  *
  * By:      Aidan Lalonde-Novales
  * Version: 1.0
- * Since:   2022-10-23
+ * Since:   2022-10-27
  */
 
 class Vehicle {
   // declares all variables
   private speed = 0
-  private licensePlate: string
-  private color: string
-  private readonly doorCount: number
   private readonly maxSpeed: number
+  private color: string
 
   // Vehicle Constructor - allows index.ts to initialize values
-  constructor(
-    licensePlate: string,
-    color: string,
-    doorCount: number,
-    maxSpeed: number
-  ) {
-    this.licensePlate = licensePlate
-    this.color = color
-    this.doorCount = doorCount
+  constructor(maxSpeed: number, color: string) {
     this.maxSpeed = maxSpeed
-  }
-
-  // Status method - print all variables
-  status(): void {
-    console.log(`
-      -> Speed: ${this.speed}
-      -> Max Speed: ${this.maxSpeed}
-      -> Number of Doors: ${this.doorCount}
-      -> License Plate: ${this.licensePlate}
-      -> Color: ${this.color}
-    `)
-  }
-
-  // licensePlate Getter - returns current licensePlate value
-  getLicensePlate(): string {
-    return this.licensePlate
-  }
-
-  // licensePlate Setter - allows user to change licensePlate
-  setLicensePlate(licensePlateInput: string): void {
-    this.licensePlate = licensePlateInput
+    this.color = color
   }
 
   // color Getter - returns current color value
@@ -59,19 +29,19 @@ class Vehicle {
     this.color = colorInput
   }
 
-  // doorCount getter - returns current doorCount value
-  getDoorCount(): number {
-    return this.doorCount
-  }
-
-  // doorCount getter - returns current doorCount value
-  getMaxSpeed(): number {
-    return this.maxSpeed
-  }
-
   // speed getter - returns current speed value
   getSpeed(): number {
     return this.speed
+  }
+
+  // speed setter - needed to change speed from Bike.ts
+  setSpeed(speedInput: number): void {
+    this.speed = speedInput
+  }
+
+  // maxSpeed getter - returns current doorCount value
+  getMaxSpeed(): number {
+    return this.maxSpeed
   }
 
   // accelerate method - increases speed by power * time
@@ -83,7 +53,7 @@ class Vehicle {
   }
 
   // break method - decreases speed by power * time
-  break(accelPower: number, accelTime: number): void {
+  braking(accelPower: number, accelTime: number): void {
     this.speed -= accelPower * accelTime
     if (!(this.speed >= 0)) {
       this.speed = 0
