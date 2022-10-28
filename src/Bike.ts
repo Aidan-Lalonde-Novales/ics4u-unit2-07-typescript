@@ -1,6 +1,6 @@
 /**
  * This is a child class of Vehicle.ts that contains
- * fields and methods more appropiate for a bike.
+ * fields and methods more appropriate for a bike.
  *
  * By:      Aidan Lalonde-Novales
  * Version: 1.0
